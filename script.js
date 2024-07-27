@@ -46,16 +46,14 @@ app.get('/chat/:text',(req,res)=>{
             body : JSON.stringify(payload)
         })
         const api_data = await response.json()
-        // console.log(api_data)
-        return api_data
+        console.log("api data",api_data)
+        return await api_data;
     }
     get_data()
     .then(e=>{
-        let response = res.json(e)
-        // console.log(response.candidates[0].content.parts[0].text);
-        return response.data;
-    }).then(e=>{
-        console.log(e)
+        // let response = res.json(e)
+        console.log('response',e.candidates[0].content.parts[0].text);
+        // console.log('request recived',response)
     })
     // console.log(typeof(get_data))
 })
